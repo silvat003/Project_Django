@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Home Page</title>
+      <link rel="stylesheet" href="{% static 'chill/css/style.css' %}">
+   </head>
+   <body>
+        
+      <div class="wrapper">
+        <div class="title">
+            {% if user.is_authenticated %}
+            <li>Welcome &nbsp {{user.username}}</li>
+        {% else %}
+            <li>Welcome Guest User</li>
+        {%endif%}
+         </div>
+         <div class="container">
+            <h1>Calculator By DjangoDynamos</h1>
+           
+            <div class="calculator">
+                   <input type="text" name="screen" id="screen">
+            <table>
+               <tr>
+                   <td><button class="operator">AC</button></td>
+                   <td><button class="operator">DEL</button></td>
+                   <td><button class="operator">%</button></td>
+                   <td><button class="operator">/</button></td>
+               </tr>
+               <tr>
+                   <td><button>7</button></td>
+                   <td><button>8</button></td>
+                   <td><button>9</button></td>
+                   <td><button class="operator">+</button></td>
+               </tr>
+               <tr>
+                   <td><button>4</button></td>
+                   <td><button>5</button></td>
+                   <td><button>6</button></td>
+                   <td><button class="operator">-</button></td>
+               </tr>
+                <tr>
+                   <td><button>1</button></td>
+                   <td><button>2</button></td>
+                   <td><button>3</button></td>
+                   <td><button class="operator">*</button></td>
+               </tr> 
+               <tr>
+                   <td><button>00</button></td>
+                   <td><button>0</button></td>
+                   <td><button>.</button></td>
+                   <td><button class="equalBtn">=</button></td>
+               </tr>
+            </table>
+           </div>
+       </div>
+           <div class="logout-link">
+               <a href="{% url 'Logout' %}">Logout</a>
+            </div>
+      </div>
+      <style>
+        .container{
+    text-align: center;
+    margin-top: 30px;
+
+}
+button{
+    font-size: 30px;
+    background-color: rgb(166, 124, 204);
+    height: 70px;
+    width: 70px;
+    border-radius: 20px;
+}
+table{
+    margin: auto;
+
+}
+input{
+    font-size:30px;
+    border: 2px solid;
+    border-radius: 20px;
+}
+.calculator{
+    border-radius: 40px;
+    padding: 23px;
+    background-color: rgb(93, 214, 198);
+    display: inline-block;
+}
+.equalBtn
+{
+    background-color: blanchedalmond;
+}
+.operator
+{
+    background-color: rgb(209, 130, 130);
+}
+      </style>
+      <script src="{% static 'chill/js/script.js' %}"></script>
+   </body>
+</html>
