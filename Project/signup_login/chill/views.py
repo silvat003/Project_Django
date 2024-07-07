@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login as user_login,logout as user_
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+#hello there
 
 
 def default_page(request):
