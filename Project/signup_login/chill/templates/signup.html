@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Sign Up Page </title>
+    <link rel="stylesheet" href="{% static 'chill/css/style.css' %}" type="text/css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    {% if messages %}
+             {% for message in messages %}
+             <div class="alert {{message.tags}} alert-dismissible fade show" role="alert">
+                 <strong>{{message}}</strong>
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             {% endfor %}
+     {% endif %}
+
+    <div class="title">Sign Up</div>
+    <div class="content">
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" name="fullname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" name="uname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" name="email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" name="password1" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" name="password2" required>
+          </div>
+        </div> 
+        <div class="content">
+          <div class="checkbox">
+            <input type="checkbox" id="myCheckbox" name="myCheckbox" value="checkboxValue">
+            <label for="myCheckbox">I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Sign Up">
+        </div>
+        <div class="login-link">
+          Already have an account? <a href="/login">Login now</a>
+       </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
